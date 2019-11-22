@@ -35,14 +35,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        fab = (FloatingActionButton)findViewById(R.id.fab);
+        /*fab = (FloatingActionButton)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "My Action", Toast.LENGTH_SHORT).show();
                 Snackbar.make(v, "My Action", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
             }
-        });
+        });*/
 
         d = (DrawerLayout)findViewById(R.id.d);
         a = new ActionBarDrawerToggle(this, d, R.string.Open,R.string.Close);

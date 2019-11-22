@@ -7,10 +7,11 @@
     tools:context=".MainActivity"
     android:id="@+id/d">
 
-   <RelativeLayout
+   <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:background="#034D4E">
+       android:background="#034D4E"
+       android:orientation="vertical">
     <!--<include layout="@layout/nav_header"/>-->
        <TextView
            android:id="@+id/tv"
@@ -19,18 +20,26 @@
            android:text="Main"
            android:textColor="@android:color/white"
            android:textSize="50dp"
+           android:background="#dddddd"/>
+
+       <Button
+           android:id="@+id/btnDelivery"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Delivery:"
            android:layout_marginTop="200dp"
-           android:layout_marginLeft="10dp"/>
-       <com.google.android.material.floatingactionbutton.FloatingActionButton
+           android:background="#049293"
+           android:textColor="#fff"/>
+      <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
            android:id="@+id/fab"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_margin="16dp"
            android:src="@drawable/basket_icon"
            android:layout_alignParentBottom="true"
-           android:layout_alignParentRight="true"/>
+           android:layout_alignParentRight="true"/>-->
 
-   </RelativeLayout>
+   </LinearLayout>
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
