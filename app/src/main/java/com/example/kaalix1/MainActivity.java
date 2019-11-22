@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
         d = (DrawerLayout)findViewById(R.id.d);
         a = new ActionBarDrawerToggle(this, d, R.string.Open,R.string.Close);
         //a = new ActionBarDrawerToggle(this, d, "open", "close");
