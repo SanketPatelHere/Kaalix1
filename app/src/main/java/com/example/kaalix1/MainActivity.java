@@ -3,6 +3,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuItemCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.DividerItemDecoration;
 
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,11 +27,14 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout d;
     ActionBarDrawerToggle a;
     FloatingActionButton fab;
-
+    MenuItem search;
+    SearchView searchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         fab = (FloatingActionButton)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(v, "My Action", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
             }
         });
-
-
-
 
         d = (DrawerLayout)findViewById(R.id.d);
         a = new ActionBarDrawerToggle(this, d, R.string.Open,R.string.Close);
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         nv.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                //menuItem.findItem(R.id.search).setVisible(false);
+
                 switch (menuItem.getItemId())
                 {
                     case R.id.home:
@@ -81,6 +85,22 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mi = getMenuInflater();
         mi.inflate(R.menu.navigation_menu, menu);
+
+        search = menu.findItem(R.id.search);
+        searchView  = (SearchView) MenuItemCompat.getActionView(search);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchView.clearFocus();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Toast.makeText(MainActivity.this, "Text change = "+newText, Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
         return true;
     }
 
