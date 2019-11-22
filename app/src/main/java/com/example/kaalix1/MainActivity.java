@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout d;
     ActionBarDrawerToggle a;
     FloatingActionButton fab;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
