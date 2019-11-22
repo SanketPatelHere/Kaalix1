@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle a;
     FloatingActionButton fab;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(v, "My Action", Snackbar.LENGTH_SHORT).setAction("Action", null).show();
             }
         });
+
 
         d = (DrawerLayout)findViewById(R.id.d);
         a = new ActionBarDrawerToggle(this, d, R.string.Open,R.string.Close);
